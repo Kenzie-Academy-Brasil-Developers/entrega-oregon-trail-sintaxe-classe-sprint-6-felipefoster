@@ -43,7 +43,7 @@ Uma `Wagon` (Carroça) também tem algumas propriedades:
 - uma `capacity` (capacidade) (número), que deve ser fornecida como parâmetro para o construtor, determina a quantidade máxima de passageiros que cabe na carroça.
 - uma lista de `passageiros` (array) que inicialmente está vazia.
 
-**O pricipal objetivo do Cocheiro (Piloto da carroça) é monitorar os assentos e estado de saúde de todos os viajantes para que ele possa decidir seguir viagem ou manter a quarentena**.
+**O principal objetivo do Cocheiro (Piloto da carroça) é monitorar os assentos e estado de saúde de todos os viajantes para que ele possa decidir seguir viagem ou manter a quarentena**.
 
 Para monitorar seus assentos e seus viajantes, o cocheiro poderá:
 
