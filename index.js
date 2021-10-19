@@ -12,37 +12,35 @@ class Traveler {
    }
 
     eat() {
-        if (this.food > 0){
-            this.food -= 1
-            Quarantine = true;
-            return ('Comeu e está bem.')
-        } else if (this.food < 1){
-            this._isHealthy = false
-            return 'Não está saudavel'
-
-        }
+    if (this.food > 0){
+        this.food -= 1
+        this._isHealthy = true
+        Quarantine = false;
+        return ('Comeu e está bem.')
+    } else if (this.food < 1) {
+        this._isHealthy = false
+        return 'Não está saudavel'
+    }
     }
 
 }
 
 
 
-class Wagon {
-    constructor(capacity) {
+class Wagon extends Traveler {
+    constructor(capacity, name) {
+        super(name)
         this.capacity = capacity;
         this.passageiros = []
     }
 
     getAvailableSeatCount() {      
         //Retorna o número de assentos vazios, determinado pela capacidade que foi estipulada quando a carroça foi criada comparado com o número de passageiros a bordo no momento.
-
-        
         if (this.passageiros.length < this.capacity){
-           return this.capacity - this.passageiros.length 
+            return this.capacity - this.passageiros.length 
         } else if (this.passageiros.length >= this.capacity){
             return 0
         }
-
     }
     
 
@@ -54,25 +52,19 @@ class Wagon {
         } else {
             return 'Está cheio'
         }
-
     }
 
     
-
-    
-
     shouldQuarantine(){
-        
         
         for (let i = 0; i < this.passageiros.length; i++) {
             if (this.passageiros[i]._isHealthy === true){
+                Quarantine = false
+            } else {
                 Quarantine = true
-                } else {
-                    Quarantine = false
-                    break
+                break;
                 }
         }
-        
         return Quarantine
     }
 
@@ -83,7 +75,6 @@ class Wagon {
         for (let i = 0; i < this.passageiros.length; i++) {
             foodTotal += this.passageiros[i].food
         }
-        
         return foodTotal
     }
 
